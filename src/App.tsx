@@ -7,7 +7,6 @@ import Users from "./Components/Users/Users"
 import Dialogs from "./Components/Dialogs/Dialogs"
 import NavBar from "./Components/NavBar/NavBar"
 
-
 const App = (props:any) => {
 
     return (
@@ -15,9 +14,11 @@ const App = (props:any) => {
             <Header />
             <NavBar />
             <div className={'content'}>
-                <Route path='/profile' render={ () => <Profile profilePageData={props.state.profilePage}/>}/>
-                <Route path='/users' render={ () => <Users />}/>
-                <Route path='/dialogs' render={ () => <Dialogs dialogsPageData={props.state.dialogsPage}/>}/>
+                <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
+                                                               addPost={props.addPost}
+                                                               updateNewPostText={props.updateNewPostText}/>} />
+                <Route path='/users' render={() => <Users /> }/>
+                <Route exact path='/dialogs' render={() => <Dialogs dialogsPageData={props.state.dialogsPage}/>} />
             </div>
         </div>
     )

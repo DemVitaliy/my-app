@@ -3,14 +3,19 @@ import styleDialogs from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message"
 
-const Dialogs = (props:any) => {
-
-    let wrappedDialogs = props.dialogsPageData.dialogs.map( (dialog:any) =>
+const Dialogs = (props: any) => {
+debugger
+    let wrappedDialogs = props.dialogsPageData.dialogs.map((dialog: any) =>
         <DialogItem name={dialog.name} id={dialog.id}/>
     )
-    let wrappedMessages = props.dialogsPageData.messages.map( (message:any) =>
+    let wrappedMessages = props.dialogsPageData.messages.map((message: any) =>
         <Message message={message.message}/>
     )
+
+    let newMessageElement: any = React.createRef()
+    let addMessage = () => {
+        let message = newMessageElement.current.value
+    }
 
     return (
         <div className={styleDialogs.dialogs}>
@@ -18,7 +23,15 @@ const Dialogs = (props:any) => {
                 {wrappedDialogs}
             </div>
             <div className={styleDialogs.messages}>
-                {wrappedMessages}
+                <div>
+                    {wrappedMessages}
+                </div>
+                <div>
+                    <textarea ref={newMessageElement}></textarea>
+                </div>
+                <div>
+                    <button onClick={addMessage}>Add message</button>
+                </div>
             </div>
         </div>
     )

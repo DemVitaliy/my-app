@@ -4,10 +4,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import MyPosts from "./MyPosts/MyPosts"
 
 const Profile = (props:any) => {
+
     return (
         <div className={styleProfile.profileStyles}>
             <ProfileInfo />
-            <MyPosts myPosts={props.profilePageData.myPosts}/>
+            <MyPosts myPosts={props.profilePage.myPosts}
+                     addPost={props.addPost}
+                     newPostText={props.profilePage.newPostText}
+                     updateNewPostText={props.updateNewPostText}/>
         </div>
     )
 }
