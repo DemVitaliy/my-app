@@ -1,0 +1,16 @@
+.header {
+    grid-area: h;
+    background-color: silver;
+}
+
+.header_logo {
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.header_login {
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
