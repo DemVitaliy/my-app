@@ -2,19 +2,23 @@ import React from "react"
 import styleDialogs from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message"
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer"
 
 const Dialogs = (props: any) => {
-debugger
-    let wrappedDialogs = props.dialogsPageData.dialogs.map((dialog: any) =>
+
+    let wrappedDialogs = props.dialogsPage.dialogs.map((dialog: any) =>
         <DialogItem name={dialog.name} id={dialog.id}/>
     )
-    let wrappedMessages = props.dialogsPageData.messages.map((message: any) =>
+    let wrappedMessages = props.dialogsPage.messages.map((message: any) =>
         <Message message={message.message}/>
     )
 
-    let newMessageElement: any = React.createRef()
     let addMessage = () => {
-        let message = newMessageElement.current.value
+        props.dispatch(addMessageActionCreator())
+    }
+    let onMessageChange = (e:any) => {
+        let message = e.target.value
+        props.dispatch(updateNewMessageTextActionCreator(message))
     }
 
     return (
@@ -27,7 +31,9 @@ debugger
                     {wrappedMessages}
                 </div>
                 <div>
-                    <textarea ref={newMessageElement}></textarea>
+                    <textarea placeholder={"Enter your message"}
+                              value={props.dialogsPage.newMessageText}
+                              onChange={onMessageChange}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>

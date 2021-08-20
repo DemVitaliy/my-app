@@ -9,9 +9,8 @@ const Profile = (props:any) => {
         <div className={styleProfile.profileStyles}>
             <ProfileInfo />
             <MyPosts myPosts={props.profilePage.myPosts}
-                     addPost={props.addPost}
                      newPostText={props.profilePage.newPostText}
-                     updateNewPostText={props.updateNewPostText}/>
+                     dispatch={props.dispatch}/>
         </div>
     )
 }

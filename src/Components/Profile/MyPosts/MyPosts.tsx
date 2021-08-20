@@ -1,27 +1,27 @@
 import React from "react"
 import Post from "./Post/Post"
 import styleMyPosts from "./MyPosts.module.css"
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer"
+
+
 
 const MyPosts = (props: any) => {
 
     let wrappedPosts = props.myPosts.map((post:any) => <Post post={post.postMessage}/>)
 
-    let newPostElement:any = React.createRef()
-
     let addPost = () => {
-        props.addPost()
+        props.dispatch(addPostActionCreator())
     }
-
-    let onPostChange = () => {
-        let post = newPostElement.current.value
-        props.updateNewPostText(post)
+    let onPostChange = (e:any) => {
+        let post = e.target.value
+        props.dispatch(updateNewPostTextActionCreator(post))
     }
 
     return (
         <div className={styleMyPosts.stylesMyPosts}>
             <h3>My posts</h3>
             <div>
-                <textarea ref={newPostElement}
+                <textarea placeholder={"Post text"}
                           value={props.newPostText}
                           onChange={onPostChange}/>
             </div>
