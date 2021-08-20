@@ -1,20 +1,17 @@
 import React from "react"
 import Post from "./Post/Post"
 import styleMyPosts from "./MyPosts.module.css"
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer"
-
 
 
 const MyPosts = (props: any) => {
+    let wrappedPosts = props.myPosts.map((post: any) => <Post post={post.postMessage} key={post.id}/>)
 
-    let wrappedPosts = props.myPosts.map((post:any) => <Post post={post.postMessage}/>)
-
-    let addPost = () => {
-        props.dispatch(addPostActionCreator())
+    let onAddPost = () => {
+        props.addPost()
     }
-    let onPostChange = (e:any) => {
+    let onPostChange = (e: any) => {
         let post = e.target.value
-        props.dispatch(updateNewPostTextActionCreator(post))
+        props.updateNewPostText(post)
     }
 
     return (
@@ -26,7 +23,7 @@ const MyPosts = (props: any) => {
                           onChange={onPostChange}/>
             </div>
             <div>
-                <button onClick={addPost}>Add post</button>
+                <button onClick={onAddPost}>Add post</button>
             </div>
             <div className={styleMyPosts.myPosts}>
                 {wrappedPosts}
