@@ -1,0 +1,9 @@
+.usersPage {
+    padding: 10px;
+    border: 1px;
+    border: solid;
+    border-color: grey;
+}
+.photo {
+    width: 200px;
+}
