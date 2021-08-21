@@ -4,7 +4,7 @@ const SET_USERS = "SET-USERS"
 
 let initialState = {
     users: [
-        {
+        /*{
             id: 1,
             avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA7K1qlnxCTLPkjZEbld9vM7aAny4QvDmaaQ&usqp=CAU",
             followed: false,
@@ -35,7 +35,7 @@ let initialState = {
             fullName: "Sasha",
             status: "=)",
             location: {country: "Belarus", city: "Minsk"}
-        }
+        }*/
     ]
 }
 
