@@ -1,9 +1,15 @@
-.usersPage {
+.userPage {
     padding: 10px;
     border: 1px;
     border: solid;
     border-color: grey;
+    width: 150px;
+    margin-bottom: 3px;
+
 }
 .photo {
     width: 150px;
+}
+.paginatorBar {
+    text-align: center;
 }

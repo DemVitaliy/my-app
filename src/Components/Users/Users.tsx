@@ -1,9 +1,9 @@
 import React from "react"
-import usersStyles from "./Users.module.css"
-
-import userPhoto from "./../../asets/images/defoltAvatar.png"
 import axios from "axios"
 import {UserType} from "../../types/types"
+import User from "./User";
+import Paginator from "../common/Paginator/Paginator"
+import usersStyles from "./User.module.css"
 
 type GetUsersType = {
     items: Array<UserType>,
@@ -13,42 +13,39 @@ type GetUsersType = {
 
 class Users extends React.Component<any> {
 
-    constructor(props:any) {
-        super(props)
-        axios.get<GetUsersType>("https://social-network.samuraijs.com/api/1.0/users")
+    componentDidMount(): void {
+        axios.get<GetUsersType>(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.count}`)
+            .then((response) => {
+                this.props.setUsers(response.data.items)
+                this.props.setTotalUsersCount(response.data.totalCount)
+            })
+    }
+
+    changePage = (pageNumber: number) => {
+        this.props.setCurrentPage(pageNumber)
+        axios.get<GetUsersType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.count}`)
             .then((response) => {
                 this.props.setUsers(response.data.items)
             })
     }
 
-    render()  {
-        debugger
+    render() {
         return (
             <div>
-                {this.props.users.map((user: any) => {
-                return <div key={user.id} className={usersStyles.usersPage}>
-                <span>
-                    <div>
-                        <img src={user.photos.small != null
-                            ? user.photos.small
-                            : userPhoto} className={usersStyles.photo}/>
-                    </div>
-                    <div>
-                        {user.followed
-                            ? <button onClick={() => this.props.unfollow(user.id)}>unfollow</button>
-                            : <button onClick={() => this.props.follow(user.id)}>follow</button>}
-                    </div>
-                </span>
-                    <span>
-                    <div>{user.name}</div>
-                    <div>{user.status}</div>
-                </span>
-                    {/*<span>
-                    <div>{user.location.country}</div>
-                    <div>{user.location.city}</div>
-                </span>*/}
+                <div className={usersStyles.paginatorBar}>
+                    <Paginator totalItemsCount={this.props.totalUsersCount}
+                                pageSize={this.props.pageSize}
+                                currentPage={this.props.currentPage}
+                                onPageChange={this.changePage}/>
                 </div>
-            })}
+
+                <div>
+                    {this.props.users.map((user: any) => {
+                        return <User user={user}
+                                     follow={this.props.follow}
+                                     unfollow={this.props.unfollow}/>
+                    })}
+                </div>
             </div>
         )
     }
