@@ -3,6 +3,8 @@ import {UserType} from "../../types/types"
 import userPhoto from "../../asets/images/defoltAvatar.png"
 import usersStyles from "./User.module.css"
 import {NavLink} from "react-router-dom"
+import axios from "axios"
+import {usersAPI} from "../../api/user-api";
 
 type PropsType = {
     user: UserType,
@@ -24,8 +26,21 @@ const User: React.FC<PropsType> = ({user, follow, unfollow}) => {
                 </div>
                 <div>
                     {user.followed
-                        ? <button onClick={() => unfollow(user.id)}>unfollow</button>
-                        : <button onClick={() => follow(user.id)}>follow</button>}
+                        ? <button onClick={() => {
+                            usersAPI.unfollow(user.id).then(data => {
+                                if (data.resultCode == 0) {
+                                    unfollow(user.id)
+                                }
+                            })
+                        }}>unfollow</button>
+                        : <button onClick={() => {
+                            usersAPI.follow(user.id).then(data => {
+                                if (data.resultCode == 0) {
+                                    follow(user.id)
+                                }
+                            })
+                        }}>follow</button>
+                    }
                 </div>
                 </span>
             <span>
@@ -37,3 +52,5 @@ const User: React.FC<PropsType> = ({user, follow, unfollow}) => {
 }
 
 export default User
+
+
