@@ -4,7 +4,7 @@ import styleMyPosts from "./MyPosts.module.css"
 
 
 const MyPosts = (props: any) => {
-    let wrappedPosts = props.myPosts.map((post: any) => <Post post={post.postMessage} key={post.id}/>)
+    let wrappedPosts = props.posts.map((post: any) => <Post post={post.postMessage} key={post.id}/>)
 
     let onAddPost = () => {
         props.addPost()
@@ -16,7 +16,7 @@ const MyPosts = (props: any) => {
 
     return (
         <div className={styleMyPosts.stylesMyPosts}>
-            <h3>My posts</h3>
+            <div className={styleMyPosts.title}>My posts</div>
             <div>
                 <textarea placeholder={"Post text"}
                           value={props.newPostText}

@@ -1,12 +1,12 @@
 import React from "react"
 import {connect} from "react-redux"
 import {
-    followAC,
+    follow,
     setCurrentPage,
     setTotalUsersCount,
-    setUsersAC,
+    setUsers,
     toggleIsFetching,
-    unfollowAC
+    unfollow
 } from "../../redux/users-reducer"
 import axios from "axios"
 import usersStyles from "./User.module.css"
@@ -76,27 +76,6 @@ let mapStateToProps = (state:any) => {
         isFetching: state.usersPage.isFetching
     }
 }
-let mapDispatchToProps = (dispatch:any) => {
-    return {
-        follow: (userId:any) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId:any) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users:any) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (currentPage:number) => {
-            dispatch(setCurrentPage(currentPage))
-        },
-        setTotalUsersCount: (totalCount:number) => {
-            dispatch(setTotalUsersCount(totalCount))
-        },
-        toggleIsFetching: (isFetching:boolean) => {
-            dispatch(toggleIsFetching(isFetching))
-        }
-    }
-}
 
-export default connect (mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect (mapStateToProps,
+    {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(UsersContainer)

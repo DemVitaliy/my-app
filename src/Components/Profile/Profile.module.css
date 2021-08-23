@@ -5,12 +5,14 @@
 .img {
     width: 200px;
 }
-.profileInfoStyles {
-    padding: 15px;
-    margin: 5px;
-}
 .nickName {
     padding-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
+}
+.descriptionBlock {
+    padding: 10px;
+}
+.contacts {
+    padding-left: 10px;
 }
