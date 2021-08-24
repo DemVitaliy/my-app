@@ -1,5 +1,4 @@
 import MyPosts from "./MyPosts"
-import React from "react"
 import {
     addPost,
     updateNewPostText

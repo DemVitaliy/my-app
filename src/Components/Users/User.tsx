@@ -3,17 +3,15 @@ import {UserType} from "../../types/types"
 import userPhoto from "../../asets/images/defoltAvatar.png"
 import usersStyles from "./User.module.css"
 import {NavLink} from "react-router-dom"
-import axios from "axios"
-import {usersAPI} from "../../api/user-api";
 
 type PropsType = {
     user: UserType,
+    followingInProgress: Array<any>,
     follow: (userId: number) => void,
     unfollow: (userId: number) => void
 }
 
-const User: React.FC<PropsType> = ({user, follow, unfollow}) => {
-
+const User: React.FC<PropsType> = ({user, followingInProgress, follow, unfollow}) => {
     return (
         <div className={usersStyles.userPage}>
             <span>
@@ -26,23 +24,19 @@ const User: React.FC<PropsType> = ({user, follow, unfollow}) => {
                 </div>
                 <div>
                     {user.followed
-                        ? <button onClick={() => {
-                            usersAPI.unfollow(user.id).then(data => {
-                                if (data.resultCode == 0) {
-                                    unfollow(user.id)
-                                }
-                            })
-                        }}>unfollow</button>
-                        : <button onClick={() => {
-                            usersAPI.follow(user.id).then(data => {
-                                if (data.resultCode == 0) {
-                                    follow(user.id)
-                                }
-                            })
-                        }}>follow</button>
+                        ? <button disabled={followingInProgress.some(id => id === user.id)}
+                                  onClick={() => {
+                                      unfollow(user.id)
+                                  }}>
+                            Unfollow</button>
+                        : <button disabled={followingInProgress.some(id => id === user.id)}
+                                  onClick={() => {
+                                      follow(user.id)
+                                  }}>
+                            Follow</button>
                     }
                 </div>
-                </span>
+            </span>
             <span>
                 <div>{user.name}</div>
                 <div>{user.status}</div>

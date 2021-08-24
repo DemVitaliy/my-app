@@ -17,7 +17,7 @@ export const usersAPI = {
             .then(response => response.data)
     },
     unfollow(userId:number) {
-        return instance.delete(`unfollow/${userId}`)
+        return instance.delete(`follow/${userId}`)
             .then(response => response.data)
     }
 }
