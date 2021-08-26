@@ -6,11 +6,17 @@ import {ProfileType} from "../../types/types"
 
 export type ProfileInfoPropsType = {
     profile: ProfileType
+    status: string
+    isOwner: boolean
+    updateStatus: (status: string) => void
 }
 const Profile: React.FC<ProfileInfoPropsType> = (props) => {
     return (
         <div className={styleProfile.profileStyles}>
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo profile={props.profile}
+                         status={props.status}
+                         isOwner={props.isOwner}
+                         updateStatus={props.updateStatus}/>
             <MyPostContainer />
         </div>
     )

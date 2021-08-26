@@ -1,9 +1,9 @@
 import React from "react"
 
-const LoginForm = () => {
+const LoginForm = (props:any) => {
     return (
         <div>Login</div>
     )
 }
 
-export {LoginForm}
+export default LoginForm

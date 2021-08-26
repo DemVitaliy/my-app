@@ -1,7 +1,7 @@
 import React from "react"
 import classes from './HeaderBar.module.css'
-import {LoginForm} from "../Login/Login"
-import {NavLink} from "react-router-dom";
+import LoginForm from "../Login/Login"
+import {NavLink} from "react-router-dom"
 
 const Header = (props:any) => {
     return (

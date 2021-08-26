@@ -4,8 +4,9 @@ import userPhoto from "../../../asets/images/defoltAvatar.png"
 import Preloader from "../../common/Preloader/Preloader"
 import {ProfileInfoPropsType} from "../Profile"
 import {ProfileContactsType} from "../../../types/types"
+import ProfileStatus from "./ProfileStatus"
 
-const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile}) => {
+const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, isOwner, updateStatus}) => {
     if (!profile) {
         return <Preloader />
     }
@@ -15,6 +16,9 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile}) => {
             {profile.photos.large != null
                 ? <img className={styleProfile.img} src={profile.photos.large}/>
                 : <img className={styleProfile.img} src={userPhoto}/>}
+                <ProfileStatus status={status}
+                               isOwner={isOwner}
+                               updateStatus={updateStatus}/>
             <div><b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}</div>
             {profile.lookingForAJob && <div><b>My skills</b>: {profile.lookingForAJobDescription}</div>}
             <div><b>About Me</b>: {profile.aboutMe}</div>
