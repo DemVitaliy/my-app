@@ -8,17 +8,17 @@ import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = ({profile, status, isOwner, updateStatus}) => {
     if (!profile) {
-        return <Preloader />
+        return <Preloader/>
     }
     return (
         <div className={styleProfile.descriptionBlock}>
             <div className={styleProfile.nickName}>{profile.fullName}</div>
             {profile.photos.large != null
-                ? <img className={styleProfile.img} src={profile.photos.large}/>
-                : <img className={styleProfile.img} src={userPhoto}/>}
-                <ProfileStatus status={status}
-                               isOwner={isOwner}
-                               updateStatus={updateStatus}/>
+                ? <img className={styleProfile.img} src={profile.photos.large} alt=""/>
+                : <img className={styleProfile.img} src={userPhoto} alt=""/>}
+            <div><ProfileStatus status={status}
+                                isOwner={isOwner}
+                                updateStatus={updateStatus}/></div>
             <div><b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}</div>
             {profile.lookingForAJob && <div><b>My skills</b>: {profile.lookingForAJobDescription}</div>}
             <div><b>About Me</b>: {profile.aboutMe}</div>

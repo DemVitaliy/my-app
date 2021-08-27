@@ -31,12 +31,15 @@ class UsersContainer extends React.Component<any> {
                 <div className={usersStyles.isFetching}>
                     {this.props.isFetching ? <Preloader/> : null}
                 </div>
-                <div>
+                <div className={usersStyles.usersBox}>
                     {this.props.users.map((user: any) => {
-                        return <User user={user}
-                                     followingInProgress={this.props.followingInProgress}
-                                     follow={this.props.followUser}
-                                     unfollow={this.props.unfollowUser}/>
+                        return <div>
+                            <User user={user}
+                                  key={user.Id}
+                                  followingInProgress={this.props.followingInProgress}
+                                  follow={this.props.followUser}
+                                  unfollow={this.props.unfollowUser}/>
+                        </div>
                     })}
                 </div>
             </>

@@ -23,7 +23,7 @@ const MyPosts = (props: any) => {
                           onChange={onPostChange}/>
             </div>
             <div>
-                <button onClick={onAddPost}>Add post</button>
+                <button onClick={onAddPost} className={styleMyPosts.button}>Add post</button>
             </div>
             <div className={styleMyPosts.myPosts}>
                 {wrappedPosts}
