@@ -1,18 +1,49 @@
 .profileStyles {
+    margin: 15px;
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 1fr 2fr;
 }
 .img {
     width: 200px;
+    margin-left: 30px;
 }
 .nickName {
     padding-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
 }
 .descriptionBlock {
-    padding: 10px;
 }
 .contacts {
     padding-left: 10px;
+}
+.avaBox {
+    padding: 10px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    margin: 10px;
+}
+.contactsBox {
+    padding: 10px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    margin: 10px;
+}
+.aboutMeBox {
+    padding: 10px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    margin: 10px;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.statusBox {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    margin-bottom: 15px;
 }

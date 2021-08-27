@@ -3,6 +3,8 @@ import styleProfile from "./Profile.module.css"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import MyPostContainer from "./MyPosts/MyPostsContainer"
 import {ProfileType} from "../../types/types"
+import AboutMe from "./AboutMe"
+import Preloader from "../common/Preloader/Preloader"
 
 export type ProfileInfoPropsType = {
     profile: ProfileType
@@ -11,15 +13,21 @@ export type ProfileInfoPropsType = {
     updateStatus: (status: string) => void
 }
 const Profile: React.FC<ProfileInfoPropsType> = (props) => {
-    return (
-        <div className={styleProfile.profileStyles}>
-            <ProfileInfo profile={props.profile}
-                         status={props.status}
-                         isOwner={props.isOwner}
-                         updateStatus={props.updateStatus}/>
-            <MyPostContainer />
+    if (!props.profile) {
+        return <Preloader/>
+    }
+    return <div className={styleProfile.profileStyles}>
+        <ProfileInfo profile={props.profile}/>
+        <div>
+            <AboutMe status={props.status}
+                     aboutMe={props.profile.aboutMe}
+                     isOwner={props.isOwner}
+                     updateStatus={props.updateStatus}/>
+            <MyPostContainer/>
         </div>
-    )
+
+    </div>
+
 }
 
 export default Profile

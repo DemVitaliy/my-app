@@ -11,7 +11,7 @@
     width: 400px;
     border: none;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: gainsboro;
     margin-left: 40px;
     display: grid;
     grid-template-areas:
@@ -42,7 +42,7 @@
 
 .followUnfollowButton {
     border-radius: 5px;
-    background-color: gainsboro;
+    background-color: white;
     border: none;
     color: black;
     padding: 6px 20px;
