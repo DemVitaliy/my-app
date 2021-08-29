@@ -19,7 +19,7 @@ type PropsType = {
 }
 
 class App extends React.Component<PropsType> {
-    componentDidMount(): void {
+    componentDidMount() {
         this.props.initializeApp()
     }
 

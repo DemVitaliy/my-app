@@ -4,7 +4,7 @@ import {ResultCodeWithCaptchaEnum, ResultCodsEnum} from "../api/api"
 import {securityAPI} from "../api/security-api"
 
 let initialState = {
-    userId: null as number | null,
+    id: null as number | null,
     email: null as string | null,
     login: null as string | null,
     captchaUrl: null as string | null,
@@ -26,7 +26,7 @@ const authReducer = (state = initialState, action: any) => {
 
 export const authActions = {
     setAuthUserData: (id: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
-        type: "auth/Set_USER_DATA", payload: {id, email, login, isAuth} as const
+        type: "auth/SET_USER_DATA", payload: {id, email, login, isAuth} as const
     }),
     getCaptchaUrlSuccess: (captchaUrl: string) => ({
         type: "auth/GET_CAPTCHA_URL_SUCCESS", payload: {captchaUrl}
@@ -51,7 +51,6 @@ export const login = (email: string,
        if (loginData.resultCode === ResultCodeWithCaptchaEnum.CaptchaIsRequired) {
            dispatch(getCaptchaUrl())
        }
-       //let message = loginData.messages.length > 0 ? loginData.messages[0] : "Some error"
     }
 }
 export const logout = (): ThunkType => async (dispatch) => {

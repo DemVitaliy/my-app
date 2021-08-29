@@ -2,17 +2,48 @@ import React from "react"
 import Profile from "./Profile"
 import {connect} from "react-redux"
 import {getUserProfile, getStatus, updateStatus} from "../../redux/profile-reducer"
-import {withRouter} from "react-router-dom"
+import {Redirect, RouteComponentProps, withRouter} from "react-router-dom"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import {compose} from "redux"
+import {ProfileType} from "../../types/types"
 
-class ProfileContainer extends React.Component<any> {
+type MapStatePropsType = {
+    profile: ProfileType
+    status: string
+    authorizedUserId: number
+    isAuth: boolean
+}
+type MapDispatchPropsType = {
+    getUserProfile: (userId: number) => void
+    getStatus: (userId: number) => void
+    updateStatus: (status: string) => void
+}
+type PathParamsType = {
+    userId: string
+}
+type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>
 
-    componentDidMount(): void {
-        let userId = this.props.match.params.userId
-        if (!userId) userId = this.props.isAuthId
+class ProfileContainer extends React.Component<PropsType> {
+    rebuildProfile() {
+        let userId: number | null = +this.props.match.params.userId
+        if (!userId) {
+            userId = this.props.authorizedUserId // 9663
+            /*if (!userId) {
+                <Redirect to="/login"/>
+            }*/
+        }
         this.props.getUserProfile(userId)
         this.props.getStatus(userId)
+    }
+
+    componentDidMount() {
+        this.rebuildProfile()
+    }
+
+    componentDidUpdate(prevProps: PropsType, prevState: PropsType) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.rebuildProfile()
+        }
     }
 
     render() {
@@ -26,7 +57,8 @@ class ProfileContainer extends React.Component<any> {
 let mapStateToProps = (state: any) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
-    isAuthId: state.auth.userId
+    authorizedUserId: state.auth.id,
+    isAuth: state.auth.isAuth
 })
 
 export default compose<React.ComponentType>(

@@ -14,7 +14,6 @@ const NavBar = () => {
             <NavLink to='/dialogs' activeClassName={styleNavBar.active}>Dialogs</NavLink>
         </div>
     </nav>
-
 }
 
 export default NavBar
