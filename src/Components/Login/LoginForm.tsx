@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import {useForm} from "react-hook-form"
 
 export type FormData = {
     email: string
@@ -11,14 +10,14 @@ const LoginForm = (props: any) => {
 
     const [email, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [captcha, setCaptcha] = useState("")
 
-    const onSubmit = () => {
+    const onSubmit = (event: any) => {
+        event.preventDefault()
         let data = {
             email,
             password,
-            captcha,
-            rememberMe: true
+            captcha: "",
+            rememberMe: false
         }
         props.onSubmit(data)
     }
@@ -44,21 +43,8 @@ const LoginForm = (props: any) => {
                    onChange={(e: any) => setPassword(e.target.value)}/>
         </div>
         <div>
-            {props.captchaUrl && <img src={props.captchaUrl} alt=""/>}
-            {props.captchaUrl && <input type="text"
-                                        name="captcha"
-                                        placeholder="Symbols"
-                                        id="captcha"
-                                        required={true}
-                                        onChange={(e: any) => setCaptcha(e.target.value)}/>}
+            <button type="submit">Login</button>
         </div>
-
-        <div>
-            <button type="submit">Log in</button>
-        </div>
-        {/*<div>
-            <input type={"checkbox"}/> remember me
-        </div>*/}
     </form>
 }
 

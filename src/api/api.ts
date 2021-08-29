@@ -1,5 +1,4 @@
 import axios from "axios"
-import {apiKey} from "./api-key"
 
 export const instance = axios.create({
     withCredentials: true,
@@ -13,7 +12,7 @@ export enum ResultCodsEnum {
     Success = 0,
     Error = 1
 }
-export enum ResultCodeWithCaptchaEnum {
+export enum ResultCodesWithCaptchaEnum {
     CaptchaIsRequired = 10
 }
 export type GetItemsType<I> = {

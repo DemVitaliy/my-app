@@ -3,9 +3,9 @@ import Profile from "./Profile"
 import {connect} from "react-redux"
 import {getUserProfile, getStatus, updateStatus} from "../../redux/profile-reducer"
 import {Redirect, RouteComponentProps, withRouter} from "react-router-dom"
-import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import {compose} from "redux"
 import {ProfileType} from "../../types/types"
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 type MapStatePropsType = {
     profile: ProfileType
@@ -27,9 +27,9 @@ class ProfileContainer extends React.Component<PropsType> {
     rebuildProfile() {
         let userId: number | null = +this.props.match.params.userId
         if (!userId) {
-            userId = this.props.authorizedUserId // 9663
+            userId = this.props.authorizedUserId // 9663 TODO: add redirect
             /*if (!userId) {
-                <Redirect to="/login"/>
+                this.props.history.push("/login")
             }*/
         }
         this.props.getUserProfile(userId)

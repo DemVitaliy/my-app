@@ -7,7 +7,6 @@ import {login} from "../../redux/auth-reducer"
 import { Redirect } from "react-router-dom"
 
 const Login: React.FC = () => {
-
     const isAuth = useSelector((state: AppStateType) => state.auth.isAuth)
     const captchaUrl = useSelector((state:AppStateType) => state.auth.captchaUrl)
     const dispatch = useDispatch()
@@ -16,7 +15,7 @@ const Login: React.FC = () => {
         dispatch(login(data.email, data.password, data.rememberMe, data.captcha))
     }
     if(isAuth) {
-        return <Redirect to={"/profile/"} />
+        return <Redirect to={"/profile"} />
     }
     return <div className={loginStyles.bodyBox}>
         <h2>LOGIN</h2>
