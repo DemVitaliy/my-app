@@ -5,7 +5,8 @@
 }
 .img {
     width: 200px;
-    margin-left: 30px;
+    margin-left: 50px;
+    border-radius: 10px;
 }
 .nickName {
     padding-bottom: 10px;
@@ -13,28 +14,33 @@
     font-weight: bold;
     text-align: center;
 }
+.preloader {
+    margin: auto;
+}
 .descriptionBlock {
+
 }
 .contacts {
     padding-left: 10px;
 }
 .avaBox {
     padding: 10px;
-    background-color: gainsboro;
-    border-radius: 10px;
+    background-color: silver;
     margin: 10px;
+    border-radius: 10px;
 }
 .contactsBox {
     padding: 10px;
-    background-color: gainsboro;
+    background-color: silver;
     border-radius: 10px;
     margin: 10px;
 }
 .aboutMeBox {
     padding: 10px;
-    background-color: gainsboro;
+    background-color: silver;
     border-radius: 10px;
     margin: 10px;
+    width: 650px;
 }
 .title {
     font-size: 24px;

@@ -4,9 +4,10 @@
 .stylesMyPosts {
     padding: 10px;
     margin: 10px;
-    background-color: gainsboro;
+    background-color: silver;
     border-radius: 10px;
     width: 650px;
+    height: 385px;
 }
 .stylesMyPosts textarea {
     width: 630px;

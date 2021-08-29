@@ -15,11 +15,8 @@ const MyPosts = (props: any) => {
     }
 
     return <div>
-        <div>
-
-        </div>
         <div className={styleMyPosts.stylesMyPosts}>
-            <div className={styleMyPosts.title}>My posts</div>
+            <div className={styleMyPosts.title}>Wall</div>
             <div>
                 <textarea placeholder={"Post text"}
                           maxLength={100}

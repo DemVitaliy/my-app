@@ -7,16 +7,15 @@
 }
 
 .userPage {
-    padding: 10px;
     width: 400px;
     border: none;
     border-radius: 10px;
-    background-color: gainsboro;
-    margin-left: 40px;
+    background-color: silver;
     display: grid;
     grid-template-areas:
             "a d";
     grid-template-columns: 170px 1fr;
+    margin: auto;
 }
 
 .avaBloc {
@@ -25,7 +24,7 @@
 
 .photo {
     width: 150px;
-    margin: 10px;
+    margin: auto;
     border-radius: 10px;
 }
 
@@ -61,8 +60,9 @@
     font-size: 15px;
 }
 .usersBox {
+    width: 1100px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 220px);
-    margin: auto;
+
 }

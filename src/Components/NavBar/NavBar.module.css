@@ -1,15 +1,31 @@
 .nav {
     grid-area: n;
-    background-color: gainsboro;
-    padding: 20px;
+    background-color: dimgray;
+    font-family: 'Slabo 27px', serif;
+    width: 100px;
 }
-
+.item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
 .item a {
-    color: white;
+    color: #f6f4e6;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 80px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
-
-.item a.active {
+.item a:hover {
     color: black;
+}
+.item .active {
+    color: black;
+}
+.img {
+    width: 100px;
 }

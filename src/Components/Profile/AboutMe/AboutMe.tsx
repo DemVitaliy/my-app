@@ -1,6 +1,6 @@
 import React from "react"
-import styleProfile from "./Profile.module.css"
-import ProfileStatus from "./ProfileInfo/ProfileStatus"
+import styleProfile from "../Profile.module.css"
+import ProfileStatus from "./ProfileStatus"
 
 type PropsType = {
     status: string
@@ -20,7 +20,7 @@ const AboutMe: React.FC<PropsType> = ({status, aboutMe, isOwner, updateStatus}) 
                                updateStatus={updateStatus}/>
 
         </div>
-        <div><b>About Me: </b>{aboutMe}</div>
+        <div><b>Some thoughts: </b>{aboutMe}</div>
     </div>
 }
 export default AboutMe

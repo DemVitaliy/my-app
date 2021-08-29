@@ -1,6 +1,5 @@
 import React from "react"
 import classes from './HeaderBar.module.css'
-import LoginForm from "../Login/Login"
 import {NavLink} from "react-router-dom"
 import logo from "../../asets/images/LogoPaint.png"
 
@@ -13,7 +12,7 @@ const Header = (props:any) => {
                 {props.isAuth
                     ? props.login
                     : <NavLink to={"/login"}>
-                        <LoginForm />
+                        Login
                     </NavLink>}
 
             </div>

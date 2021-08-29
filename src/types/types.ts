@@ -1,14 +1,3 @@
-export type ProfilePhotosType = {
-    small: string | null,
-    large: string | null
-}
-export type UserType = {
-    name: string,
-    id: number,
-    photos: ProfilePhotosType,
-    status: string,
-    followed: boolean
-}
 export type ProfileType = {
     userId: number,
     lookingForAJob: boolean,
@@ -27,4 +16,19 @@ export type ProfileContactsType = {
     website: string,
     youtube: string,
     mainLink: string
+}
+export type ProfilePhotosType = {
+    small: string | null,
+    large: string | null
+}
+export type UserType = {
+    name: string,
+    id: number,
+    photos: ProfilePhotosType,
+    status: string,
+    followed: boolean
+}
+export type PostType = {
+    id: number
+    message: string
 }

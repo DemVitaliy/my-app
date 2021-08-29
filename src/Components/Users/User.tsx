@@ -27,9 +27,8 @@ const User: React.FC<PropsType> = ({user, followingInProgress, follow, unfollow}
             <h3 className={usersStyles.nickName}>{user.name}</h3>
             <div className={usersStyles.status}><div className={usersStyles.text}>Status: </div>{user.status
                 ? <div>{user.status.substr(1, 40) + "..."}</div>
-                : <div>No status</div>
-
-            }</div>
+                : <div>No status</div>}
+            </div>
 
             <div className={usersStyles.buttonBox}>
                 {user.followed
@@ -47,6 +46,7 @@ const User: React.FC<PropsType> = ({user, followingInProgress, follow, unfollow}
                         Follow</button>
                 }
             </div>
+
         </div>
 
     </div>

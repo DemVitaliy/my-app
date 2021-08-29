@@ -6,7 +6,7 @@ import {withRouter} from "react-router-dom"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import {compose} from "redux"
 
-class ProfileContainer extends React.Component<any>  {
+class ProfileContainer extends React.Component<any> {
 
     componentDidMount(): void {
         let userId = this.props.match.params.userId
