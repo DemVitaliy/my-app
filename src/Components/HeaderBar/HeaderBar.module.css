@@ -1,18 +1,27 @@
 .header {
-    grid-area: h;
-    background-color: darkgrey;
+    background-color: #d84a1b;
+    width: 100%;
+    font-size: 25px;
 }
-
+.header_menu {
+    padding-top: 17px;
+}
+.login_logout_block {
+    padding-top: 17px;
+}
+.header a {
+    color: black;
+    margin: 20px;
+}
+.header a:hover {
+    color: white;
+}
 .header_logo {
-    height: 100px;
-    width: 217px;
+    height: 75px;
+    width: 165px;
 }
-
-.header_login {
-    float: right;
-    margin-top: 35px;
-    margin-right: 10px;
-}
-.header_login a {
+.your_login {
+    font-weight: bold;
+    text-decoration: underline;
     color: black;
 }

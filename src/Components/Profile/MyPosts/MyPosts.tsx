@@ -14,25 +14,26 @@ const MyPosts = (props: any) => {
         props.updateNewPostText(post)
     }
 
-    return <div>
-        <div className={styleMyPosts.stylesMyPosts}>
-            <div className={styleMyPosts.title}>Wall</div>
-            <div>
+    return <div className={styleMyPosts.stylesMyPosts}>
+
+        <div className={styleMyPosts.title}>Wall</div>
+
+        <div>
                 <textarea placeholder={"Post text"}
                           maxLength={100}
                           value={props.newPostText}
                           onChange={onPostChange}/>
-            </div>
-            <div>
-                <button onClick={onAddPost} className={styleMyPosts.button}>Add post</button>
-            </div>
-            <div className={styleMyPosts.myPosts}>
-                {wrappedPosts}
-            </div>
         </div>
+
+        <div>
+            <button onClick={onAddPost} className={styleMyPosts.button}>Add post</button>
+        </div>
+
+        <div className={styleMyPosts.myPosts}>
+            {wrappedPosts}
+        </div>
+
     </div>
-
-
 }
 
 export default MyPosts

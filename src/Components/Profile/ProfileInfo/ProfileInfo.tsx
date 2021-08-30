@@ -1,4 +1,4 @@
-import styleProfile from "../Profile.module.css"
+import styles from "./ProfileInfo.module.css"
 import React from "react"
 import userPhoto from "../../../asets/images/defoltAvatar.png"
 import {ProfileContactsType, ProfileType} from "../../../types/types"
@@ -7,23 +7,25 @@ export type PropsType = {
     profile: ProfileType
 }
 const ProfileInfo: React.FC<PropsType> = ({profile}) => {
-    return <div className={styleProfile.descriptionBlock}>
-        <div className={styleProfile.avaBox}>
+    return <div className={styles.descriptionBlock}>
+
+        <div className={styles.avaBox}>
             {profile.photos.large != null
-                ? <img className={styleProfile.img} src={profile.photos.large} alt=""/>
-                : <img className={styleProfile.img} src={userPhoto} alt=""/>}
-            <div className={styleProfile.nickName}>{profile.fullName}</div>
+                ? <img className={styles.img} src={profile.photos.large} alt=""/>
+                : <img className={styles.img} src={userPhoto} alt=""/>}
+            <div className={styles.nickName}>{profile.fullName}</div>
             <div><b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}</div>
             {profile.lookingForAJob && <div><b>My skills</b>: {profile.lookingForAJobDescription}</div>}
-
         </div>
-        <div className={styleProfile.contactsBox}>
+
+        <div className={styles.contactsBox}>
             <b>My Contacts</b>: {
             Object.keys(profile.contacts)
                 .map(key => <Contact key={key}
                                      contactTitle={key}
                                      contactValue={profile.contacts[key as keyof ProfileContactsType]}/>)}
         </div>
+
     </div>
 
 }
@@ -34,7 +36,7 @@ type ContactsPropsType = {
 }
 
 const Contact: React.FC<ContactsPropsType> = ({contactTitle, contactValue}) => {
-    return <div className={styleProfile.contacts}><b>{contactTitle}</b>: {contactValue}</div>
+    return <div className={styles.contacts}><b>{contactTitle}</b>: {contactValue}</div>
 }
 
 export default ProfileInfo

@@ -40,12 +40,14 @@ const Users: React.FC = () => {
 
 
     return <>
+
         <div className={usersStyles.paginatorBar}>
             <Paginator totalItemsCount={totalUsersCount}
                        pageSize={pageSize}
                        currentPage={currentPage}
                        onPageChange={onPageChange}/>
         </div>
+
         <div className={usersStyles.usersBox}>
             {users.map((user: any) => {
                 return <div>
@@ -57,8 +59,8 @@ const Users: React.FC = () => {
                 </div>
             })}
         </div>
-    </>
 
+    </>
 }
 
 export default Users

@@ -1,0 +1,29 @@
+.descriptionBlock {
+    display: flex;
+    flex-direction: column;
+}
+.img {
+    width: 200px;
+    border-radius: 10px;
+}
+.avaBox {
+    padding: 20px;
+    background-color: #c4c4c4;
+    margin: 10px;
+    border-radius: 10px;
+}
+.contactsBox {
+    padding: 20px;
+    background-color: #c4c4c4;
+    border-radius: 10px;
+    margin: 10px;
+}
+.nickName {
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.contacts {
+    padding-left: 10px;
+}

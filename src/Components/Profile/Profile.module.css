@@ -1,55 +1,14 @@
-.profileStyles {
-    margin: 15px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-}
-.img {
-    width: 200px;
-    margin-left: 50px;
-    border-radius: 10px;
-}
-.nickName {
-    padding-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-}
 .preloader {
     margin: auto;
 }
-.descriptionBlock {
+.profileStyles {
+    display: flex;
+    justify-content: center;
+}
+.profileInfoBlock {
 
 }
-.contacts {
-    padding-left: 10px;
-}
-.avaBox {
-    padding: 10px;
-    background-color: silver;
-    margin: 10px;
-    border-radius: 10px;
-}
-.contactsBox {
-    padding: 10px;
-    background-color: silver;
-    border-radius: 10px;
-    margin: 10px;
-}
-.aboutMeBox {
-    padding: 10px;
-    background-color: silver;
-    border-radius: 10px;
-    margin: 10px;
-    width: 650px;
-}
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    padding-bottom: 10px;
-    text-align: center;
-}
-.statusBox {
-    display: grid;
-    grid-template-columns: 1fr 8fr;
-    margin-bottom: 15px;
+.aboutMe_post{
+    display: flex;
+    flex-direction: column;
 }

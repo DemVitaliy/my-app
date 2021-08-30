@@ -1,5 +1,5 @@
 import React from "react"
-import styleProfile from "./Profile.module.css"
+import styles from "./Profile.module.css"
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import MyPostContainer from "./MyPosts/MyPostsContainer"
 import {ProfileType} from "../../types/types"
@@ -14,11 +14,15 @@ export type ProfileInfoPropsType = {
 }
 const Profile: React.FC<ProfileInfoPropsType> = (props) => {
     if (!props.profile) {
-        return <div className={styleProfile.preloader}><Preloader /></div>
+        return <div className={styles.preloader}><Preloader/></div>
     }
-    return <div className={styleProfile.profileStyles}>
-        <ProfileInfo profile={props.profile}/>
-        <div>
+    return <div className={styles.profileStyles}>
+
+        <div className={styles.profileInfoBlock}>
+            <ProfileInfo profile={props.profile}/>
+        </div>
+
+        <div className={styles.aboutMe_post}>
             <AboutMe status={props.status}
                      aboutMe={props.profile.aboutMe}
                      isOwner={props.isOwner}
